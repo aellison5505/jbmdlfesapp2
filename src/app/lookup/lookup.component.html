@@ -1,0 +1,11 @@
+<div class="w3-row w3-container w3-content">
+  <h2 class="w3-xxxlarge">Building Lookup</h2>
+  <form class="w3-panel w3-white w3-card-2 w3-display-container">
+    <p class="w3-xlarge w3-margin-left">Enter the building number:<br />
+      <span class="w3-text-red w3-xlarge">{{err}}</span><br />
+      <input [(ngModel)]="bldg" name="bldg" style="width: 150px;" type="text" required autofocus><br /><br />
+      <button class="w3-btn w3-theme-d5" (click)="sub()">Submit</button><br />
+    </p>
+  </form>
+
+</div>
