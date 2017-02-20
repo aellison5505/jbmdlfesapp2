@@ -8,11 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LookupComponent } from './lookup/lookup.component';
 import { LocalDBService } from './localdb.service';
+import { BldgResultComponent } from './bldgresult/bldgresult.component';
+import { BldgtransportService } from './bldgtransport.service';
 
 const appRoutes: Routes = [
 
   { path: 'welcome', component: WelcomeComponent },
   { path: 'lookup', component: LookupComponent },
+  { path: 'bldgresult', component: BldgResultComponent },
   {
     path: '',
     redirectTo: '/welcome',
@@ -30,7 +33,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     WelcomeComponent,
-    LookupComponent
+    LookupComponent,
+    BldgResultComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
-  providers: [LocalDBService],
+  providers: [LocalDBService, BldgtransportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDBService } from '../localdb.service';
+import { BldgtransportService } from '../bldgtransport.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,11 +9,13 @@ import {Router} from '@angular/router';
 export class LookupComponent implements OnInit {
 
   err: String;
-  parentRouter;
-  bldg;
 
-  constructor(private localdb: LocalDBService) {
-    this.parentRouter = Router;
+  bldg;
+  doc;
+
+  constructor(private router: Router, private localdb: LocalDBService, private trans: BldgtransportService) {
+
+
     //    this.err = "test error";
 
   }
@@ -27,8 +30,18 @@ export class LookupComponent implements OnInit {
     } else {
       console.log(this.bldg);
       this.localdb.get(this.bldg).then((doc) => {
+        this.err = "";
         console.log(doc);
+        this.doc = doc;
+        this.trans.passDoc(this.doc);
+        this.router.navigateByUrl('/bldgresult');
+
       }).catch((err) => {
+        if(err.status === 404){
+          this.err = "Building is not found!";
+        }else{
+          this.err = err.name + ": "+err.message;
+        }
         console.log(err);
       });
     }
