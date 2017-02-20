@@ -7,13 +7,15 @@ import {LocalDBService } from './localdb.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private localdb : LocalDBService) {}
+  constructor(private localdb: LocalDBService) { }
 
-  init():void {
+  init(): void {
     this.localdb.init();
   }
 
   ngOnInit() {
+
     this.init();
+
   }
 }
