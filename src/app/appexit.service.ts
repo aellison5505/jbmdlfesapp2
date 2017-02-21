@@ -10,19 +10,19 @@ export class AppExitService {
 
   }
 
-  exitApp():void {
-    let r = confirm("Are you sure you want to exit?");
-    if (r == true) {
+  exitApp(): void {
+    let r = confirm('Are you sure you want to exit?');
+    if (r === true) {
 
-      if(this.navigator.app){
-      this.navigator.app.exitApp();
+      if (this.navigator.app) {
+        this.navigator.app.exitApp();
       }
-      if(this.navigator.device){
-      this.navigator.device.exitApp();
-      }else{
+      if (this.navigator.device) {
+        this.navigator.device.exitApp();
+      } else {
         window.close();
 
-        //window.location.href = "http://new";
+        // window.location.href = "http://new";
 
       }
     }

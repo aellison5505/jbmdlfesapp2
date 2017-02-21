@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
     this.init();
     document.addEventListener('backbutton', (e) => {
 
-       e.preventDefault();
-       this.appexit.exitApp();
+      e.preventDefault();
+      this.appexit.exitApp();
 
-    },false);
+    }, false);
 
 
   }
