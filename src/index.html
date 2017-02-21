@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>JBMDL FES APP</title>
-  <base href="/">
+  <base href="./">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ws: cdvfile: https://ssl.gstatic.com http: 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"/>
 
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="w3-theme-d3">
-  <app-root><br /><h1>Loading...</h1></app-root>
-  <!--
-  <script type="text/javascript" src="cordova.js"></script>
-  -->
+  <app-root><br /><h1>Loading...<br />Please Wait...</h1></app-root>
+
+<script type="text/javascript" src="cordova.js"></script>
+
 </body>
 </html>

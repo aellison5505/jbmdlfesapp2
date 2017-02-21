@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalDBService } from './localdb.service';
+import { AppExitService } from './appexit.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import {LocalDBService } from './localdb.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private localdb: LocalDBService) { }
+  constructor(private localdb: LocalDBService, private appexit: AppExitService) { }
 
   init(): void {
     this.localdb.init();
@@ -16,6 +17,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.init();
+    document.addEventListener('backbutton', (e) => {
+
+       e.preventDefault();
+       this.appexit.exitApp();
+
+    },false);
+
 
   }
 }
