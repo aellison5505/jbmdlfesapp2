@@ -25,7 +25,7 @@ export class LocalDBService {
     }).on('error', (err) => {
       console.log(err);
       if (this.ival === null) {
-        this.ival = setTimeout(() => {
+        this.ival = setInterval(() => {
           this.sync();
         }, 10000);
       }
