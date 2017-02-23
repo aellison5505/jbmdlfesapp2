@@ -16,8 +16,7 @@ export class AppExitService {
 
       if (this.navigator.app) {
         this.navigator.app.exitApp();
-      }
-      if (this.navigator.device) {
+      }else if (this.navigator.device) {
         this.navigator.device.exitApp();
       } else {
         window.close();
