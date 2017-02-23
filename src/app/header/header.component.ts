@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppExitService } from '../appexit.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +10,7 @@ export class HeaderComponent implements OnInit {
   vis: boolean;
 
 
-  constructor(private appexit: AppExitService) {
+  constructor() {
     this.vis = true;
 
   }
@@ -22,11 +21,6 @@ export class HeaderComponent implements OnInit {
 
   hide() {
     this.vis = true;
-  }
-
-  exit():void {
-      this.appexit.exitApp();
-      this.hide();
   }
 
   ngOnInit() {
