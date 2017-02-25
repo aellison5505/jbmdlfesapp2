@@ -10,7 +10,6 @@ import { LookupComponent } from './lookup/lookup.component';
 import { LocalDBService } from './localdb.service';
 import { BldgResultComponent } from './bldgresult/bldgresult.component';
 import { BldgtransportService } from './bldgtransport.service';
-import { AppExitService } from './appexit.service';
 
 const appRoutes: Routes = [
 
@@ -43,7 +42,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
-  providers: [LocalDBService, BldgtransportService, AppExitService],
+  providers: [LocalDBService, BldgtransportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

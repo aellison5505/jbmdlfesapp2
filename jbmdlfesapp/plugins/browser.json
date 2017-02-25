@@ -9,9 +9,6 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "net.mobilewebapp.jbmdlfesapp"
-        },
-        "cordova.custom.plugins.exitapp": {
-            "PACKAGE_NAME": "net.mobilewebapp.jbmdlfesapp"
         }
     },
     "dependent_plugins": {}

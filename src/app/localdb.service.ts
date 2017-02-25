@@ -6,38 +6,57 @@ export class LocalDBService {
 
   db;
   remoteDB;
-  ival;
+  public ival;
+  cleari:boolean;
 
 
   constructor() {
     this.db = null;
     this.remoteDB = null;
     this.ival = null;
+    this.cleari = false;
+  }
+
+  private cleanup(): void {
+      console.log("clean");
+      this.remoteDB.compact().then((res) => {
+        console.log("pact");
+      }).catch((err) => {
+        console.log("errp");
+      });
+      this.db.compact().then((res1) => {
+        console.log("pact2");
+      });;
   }
 
   private sync(): void {
-    this.remoteDB = new PouchDB('https://jbmdl_app:app_jbmdl@app.mobilewebapp.net:8000/test_db/');
+    if(this.cleari){
+      console.log("clear");
+      clearInterval(this.ival);
+      return;
+    }
+    this.remoteDB = new PouchDB('https://jbmdl_app:app_jbmdl@app.mobilewebapp.net:8000/lke_grid/');
     this.db.replicate.from(this.remoteDB).on('complete', () => {
       console.log('syn');
-      clearInterval(this.ival);
-      this.ival = null;
+      this.cleari = true;
+      this.cleanup();
+
+    //  this.ival = null;
 
     }).on('error', (err) => {
       console.log(err);
-      if (this.ival === null) {
-        this.ival = setInterval(() => {
-          this.sync();
-        }, 10000);
-      }
+
     });
     this.remoteDB = null;
   }
 
   public init() {
-    this.db = new PouchDB('jbmdl_db', {
+    this.db = new PouchDB('jbmdl_grid_db', {
       skip_setup: false
     });
-
+    this.ival = setInterval(() => {
+      this.sync();
+    }, 10000);
     this.db.info().then((info) => {
       console.log(info);
       if(info.doc_count>0){
@@ -45,6 +64,7 @@ export class LocalDBService {
       }else{
         console.log('need docs');
       }
+
       this.sync();
     }).catch((err) => {
       console.log('error db setup' + err);

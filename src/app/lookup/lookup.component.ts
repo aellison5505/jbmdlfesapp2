@@ -25,9 +25,7 @@ export class LookupComponent implements OnInit {
 
   sub() {
     //    this.err = this.bldg;
-    if (isNaN(this.bldg)) {
-      this.err = "Please enter numbers only!";
-    } else {
+  
       console.log(this.bldg);
       this.localdb.get(this.bldg).then((doc) => {
         this.err = "";
@@ -44,7 +42,7 @@ export class LookupComponent implements OnInit {
         }
         console.log(err);
       });
-    }
+
   }
 
 }
