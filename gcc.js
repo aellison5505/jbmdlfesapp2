@@ -23,7 +23,7 @@ var compiler = new closureCompiler({
   module_resolution: 'legacy',
   isolation_mode: 'IIFE',
   warning_level: 'QUIET',
-  rewrite_polyfills: false,
+  rewrite_polyfills: true,
   //formatting: 'pretty_print',
   process_common_js_modules: true,
   dependency_mode: 'strict',
