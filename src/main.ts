@@ -1,16 +1,12 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { platformBrowser }    from '@angular/platform-browser';
+import { AppModuleNgFactory } from '../aot/src/app/app.module.ngfactory';
 import { enableProdMode } from '@angular/core';
-import { environment } from './environments/environment';
-import { AppModule } from './app/app.module';
 
-if (environment.production) {
-  enableProdMode();
-}
+enableProdMode();
 
-//call for bootstrap
-
+console.log('Running AOT compiled');
 let bootstrap = () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 };
 
 //if cordova wait for framework to load then call bootstrap to load angular

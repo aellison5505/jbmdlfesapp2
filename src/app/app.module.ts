@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+
 import { LookupComponent } from './lookup/lookup.component';
 import { LocalDBService } from './localdb.service';
 import { BldgResultComponent } from './bldgresult/bldgresult.component';

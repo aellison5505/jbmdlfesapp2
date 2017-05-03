@@ -10,8 +10,8 @@ export class LookupComponent implements OnInit {
 
   err: String;
 
-  bldg;
-  doc;
+  bldg: string;
+  doc: String;
 
   constructor(private router: Router, private localdb: LocalDBService, private trans: BldgtransportService) {
 
@@ -25,7 +25,7 @@ export class LookupComponent implements OnInit {
 
   sub() {
     //    this.err = this.bldg;
-  
+
       console.log(this.bldg);
       this.localdb.get(this.bldg).then((doc) => {
         this.err = "";

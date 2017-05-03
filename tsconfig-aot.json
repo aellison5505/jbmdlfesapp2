@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "target": "es6",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "lib": ["es2015", "dom"],
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true
+  },
+  "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "src/environments/**",
+        "src/test.ts",
+        "src/main-jit.ts",
+        "src/main-aot.ts",
+        "aot",
+        "build"
+
+    ],
+
+  "angularCompilerOptions": {
+      "genDir": "aot",
+   "annotationsAs": "static fields",
+   "annotateForClosureCompiler": true
+ }
+}

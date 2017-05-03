@@ -6,11 +6,10 @@ import { BldgtransportService } from '../bldgtransport.service';
 })
 export class BldgResultComponent implements OnInit {
 
-  msg:Object;
+  msg;
 
   constructor(private bldg:BldgtransportService) {
 
-    this.msg = {};
 
   }
 

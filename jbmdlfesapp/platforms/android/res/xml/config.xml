@@ -21,5 +21,11 @@
     <allow-intent href="geo:*" />
     <hook src="../ngbuildprod.js" type="before_prepare" />
     <allow-intent href="market:*" />
+    <icon density="ldpi" src="./icons/icon-36x36.png" />
+    <icon density="mdpi" src="./icons/icon-48x48.png" />
+    <icon density="hdpi" src="./icons/icon-72x72.png" />
+    <icon density="xhdpi" src="./icons/icon-96x96.png" />
+    <icon density="xxhdpi" src="./icons/icon-144x144.png" />
+    <icon density="xxxhdpi" src="./icons/icon-192x192.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

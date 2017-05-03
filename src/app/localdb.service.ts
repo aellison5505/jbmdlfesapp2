@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as PouchDB from 'pouchdb';
+
+declare var PouchDB:any;
 
 @Injectable()
 export class LocalDBService {
@@ -9,12 +10,12 @@ export class LocalDBService {
   public ival;
   cleari:boolean;
 
-
-  constructor() {
+constructor() {
     this.db = null;
     this.remoteDB = null;
     this.ival = null;
     this.cleari = false;
+
   }
 
   private cleanup(): void {
@@ -35,14 +36,11 @@ export class LocalDBService {
       clearInterval(this.ival);
       return;
     }
-    this.remoteDB = new PouchDB('https://jbmdl_app:app_jbmdl@app.mobilewebapp.net:8000/lke_grid/');
+    this.remoteDB = new PouchDB('http://jbmdl_app:app_jbmdl@ec2-52-202-51-186.compute-1.amazonaws.com:5984/lke_grid/');
     this.db.replicate.from(this.remoteDB).on('complete', () => {
       console.log('syn');
       this.cleari = true;
       this.cleanup();
-
-    //  this.ival = null;
-
     }).on('error', (err) => {
       console.log(err);
 
